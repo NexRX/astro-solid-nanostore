@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ToggleTheme from "../components/toggle-theme";
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <h1>Welcome to Astro</h1>
+    <ul role="list">
+      <ToggleTheme client:load />
+      <ToggleTheme client:load />
+    </ul>
+  </main>
+</Layout>
+
+<script>
+  import { $theme } from "../components/toggle-theme";
+  $theme.subscribe((value, old) => {
+    console.log(`Changing theme to '${value}' from '${old}'`);
+    if (value === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  });
+</script>
+<style>
+  @media (prefers-color-scheme: dark) {
+    html.dark {
+      background-color: #333333;
+      color: white;
+    }
+  }
+</style>
