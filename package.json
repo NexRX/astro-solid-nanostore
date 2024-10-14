@@ -15,7 +15,7 @@
     "@nanostores/persistent": "^0.10.1",
     "@nanostores/solid": "^0.4.2",
     "nanostores": "^0.10.3",
-    "astro": "^4.7.1",
+    "astro": "^4.16.1",
     "solid-js": "^1.8.17",
     "typescript": "^5.4.5"
   }
